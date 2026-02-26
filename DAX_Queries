@@ -1,0 +1,18 @@
+1) First DAX query
+
+CaceledBookings = 
+CALCULATE(
+	COUNTROWS(Bookings),
+	Bookings[Booking_Status] IN {"Canceled by Driver", "Canceled by Customer"}
+)
+_____________________________________________________________________________________
+
+2) Second DAX query
+
+TotalBookings = COUNTROWS(Bookings)
+_____________________________________________________________________________________
+
+3) Third DAX query
+
+CanceledPercentage = 
+DIVIDE([CanceledBookings], [TotalBookings], 0) * 100
